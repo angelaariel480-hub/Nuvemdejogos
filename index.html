@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +7,7 @@
     <!-- Carregando a biblioteca do EmulatorJS -->
     <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
     <style>
-        body { font-family: sans-serif; background: #121212; color: white; display: flex; flex-direction: column; align-items: center; margin: 0; }
+        body { font-family: sans-serif; background: #121212; color: white; display: flex; flex-direction: column; align-items: center; min-height: 100vh; margin: 0; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; padding: 20px; width: 100%; max-width: 800px; }
         .game-card { background: #1e1e1e; padding: 20px; border-radius: 10px; cursor: pointer; text-align: center; border: 2px solid #333; transition: 0.3s; }
         .game-card:hover { border-color: #007bff; transform: scale(1.05); }
@@ -20,7 +19,7 @@
     <h1>Minha Biblioteca Gamer</h1>
 
     <div class="grid" id="menu">
-        <!-- Jogo eFootball via link direto do Google Drive -->
+        <!-- Jogo eFootball via link direto do Dropbox -->
         <div class="game-card" onclick="iniciarJogo('ppsspp', 'https://dl.dropboxusercontent.com/scl/fi/dlr5oabqdz79im1ehk4xo/efootball.iso?rlkey=ciodxiw7hpddrj40jtnfzfawk&st=w622mpoe&dl=1')">
             <h3>eFootball</h3>
             <p>PSP</p>
@@ -38,7 +37,7 @@
 
             // Configuração do EmulatorJS
             window.EJS_player = '#game-container';
-            window.EJS_core = core; 
+            window.EJS_core = core;
             window.EJS_gameUrl = romUrl;
             window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
 
@@ -54,8 +53,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
