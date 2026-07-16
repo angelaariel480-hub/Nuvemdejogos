@@ -1,0 +1,58 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Cloud Gaming</title>
+    <!-- Carregando a biblioteca do EmulatorJS -->
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: white; display: flex; flex-direction: column; align-items: center; margin: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; padding: 20px; width: 100%; max-width: 800px; }
+        .game-card { background: #1e1e1e; padding: 20px; border-radius: 10px; cursor: pointer; text-align: center; border: 2px solid #333; transition: 0.3s; }
+        .game-card:hover { border-color: #007bff; transform: scale(1.05); }
+        #game-container { width: 100%; height: 90vh; background: black; display: none; }
+    </style>
+</head>
+<body>
+
+    <h1>Minha Biblioteca Gamer</h1>
+
+    <div class="grid" id="menu">
+        <!-- Jogo eFootball via link direto do Google Drive -->
+        <div class="game-card" onclick="iniciarJogo('ppsspp', 'https://drive.google.com/uc?export=download&id=1WEjNjtLy5qbHxyyK37QdgxemJok7Sr27')">
+            <h3>eFootball</h3>
+            <p>PSP</p>
+        </div>
+    </div>
+
+    <!-- Container onde o jogo vai aparecer -->
+    <div id="game-container"></div>
+
+    <script>
+        function iniciarJogo(core, romUrl) {
+            // Esconde o menu e mostra a tela do jogo
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('game-container').style.display = 'block';
+
+            // Configuração do EmulatorJS
+            window.EJS_player = '#game-container';
+            window.EJS_core = core; 
+            window.EJS_gameUrl = romUrl;
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+
+            // Inicializa o emulador
+            new EJS(window.EJS_player, {
+                core: core,
+                gameUrl: romUrl,
+                width: '100%',
+                height: '100%',
+                pathtodata: 'https://cdn.emulatorjs.org/stable/data/'
+            });
+        }
+    </script>
+</body>
+</html>
+
+```
